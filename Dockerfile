@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1.3-labs
+# syntax=docker/dockerfile:1.5
 ARG PYTHON_VERSION=3.13
 ARG ALPINE_VERSION=3.21
 FROM python:$PYTHON_VERSION-alpine$ALPINE_VERSION AS base
