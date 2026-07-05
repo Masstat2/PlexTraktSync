@@ -48,7 +48,7 @@ ARG PYTHON_VERSION
 RUN du -sh /root/.local/share/virtualenvs/app-*/lib/python$PYTHON_VERSION/site-packages
 
 FROM base AS compile
-ARG APP_VERSION=$APP_VERSION
+ARG APP_VERSION
 ENV APP_VERSION=$APP_VERSION
 
 COPY plextraktsync ./plextraktsync/

@@ -128,7 +128,7 @@ services:
     container_name: plextraktsync
     restart: on-failure:2
     volumes:
-      - ./config:/appnvironment:
+      - ./config/app
     environment:
      - PUID=1000
       - PGID=1000
