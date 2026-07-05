@@ -55,7 +55,7 @@ These instructions apply to the whole repository.
 - Prefer atomic commits: one intent, one self-contained change.
 - Keep commits small enough to review and revert independently.
 - Separate refactors, behavior changes, tests, and docs when practical.
-- Follow the principles from https://cbea.ms/git-commit/.
+- Follow the principles from [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/).
 - Use commit messages with:
   - a short imperative subject line
   - a blank line after the subject
