@@ -82,31 +82,31 @@ The script is known to work with Python 3.10-3.13 versions.
 
 Installation with [pipx][install-pipx].
 
-```
+```bash
 pipx install PlexTraktSync
 ```
 
 or, to install specific version:
 
-```
+```bash
 pipx install PlexTraktSync==0.15.2 --force
 ```
 
 and to upgrade:
 
-```
+```bash
 plextraktsync self-update
 ```
 
 which just calls `pipx` with:
 
-```
+```bash
 pipx upgrade PlexTraktSync
 ```
 
 to run:
 
-```
+```bash
 plextraktsync sync
 ```
 
@@ -159,10 +159,9 @@ Note: `main` is development version and reporting bugs against development versi
 
 Run the Docker Container
 
-
 To run sync:
 
-```
+```bash
 docker compose run --rm plextraktsync sync
 ```
 
@@ -181,7 +180,7 @@ See contributing guide how to [install code from pull request].
 
 NOTE: _This installation method is not supported. It's documented solely by user contribution._
 
-- Download the latest `.zip` release from https://github.com/Taxel/PlexTraktSync/tags
+- Download the latest `.zip` release from <https://github.com/Taxel/PlexTraktSync/tags>
 - Run `setup.bat` to install requirements and create optional shortcuts and
   routines _(requires Windows 7sp1 - 11)_.
 
@@ -211,14 +210,14 @@ Utilize the "Community Apps" Unraid Plugin.
 Once installed (or if already installed):
 
 - Go to the (newly created) Apps tab and search "plextraktsync", and click on
-  the App, and click "Install" (https://forums.unraid.net/topic/38582-plug-in-community-applications/)
+  the App, and click "Install" (<https://forums.unraid.net/topic/38582-plug-in-community-applications/>)
 - Take all the default settings (the -it switch as outlined elsewhere in the
   README is already present), and click "Apply".
 - The container then installs, and will start.
 
 Schedule (cron) the container to start at given intervals to process the sync
 
-- Go to the Plugins tab, past the User Scripts URL in the URL area, and click "Install" (https://forums.unraid.net/topic/48286-plugin-ca-user-scripts/)
+- Go to the Plugins tab, past the User Scripts URL in the URL area, and click "Install" (<https://forums.unraid.net/topic/48286-plugin-ca-user-scripts/>)
 
 Once installed (or if already installed):
 
@@ -227,7 +226,7 @@ Once installed (or if already installed):
 - Click the "gear" icon next to the script name, and click "Edit Script"
 - Remove the "#!/bin/bash" line and add:
 
-```
+```bash
 #!/bin/bash
 
 # Check if the container is running
@@ -258,7 +257,7 @@ Installing from GitHub is considered developer mode, and it's documented in
 
 - You will need to create a Trakt API app if you do not already have one:
 
-  - Visit https://trakt.tv/oauth/applications/new
+  - Visit <https://trakt.tv/oauth/applications/new>
   - Give it a meaningful name
   - Enter `urn:ietf:wg:oauth:2.0:oob` as the redirect url
   - You can leave Javascript origins and the Permissions checkboxes blank
@@ -266,8 +265,7 @@ Installing from GitHub is considered developer mode, and it's documented in
 - Run `plextraktsync login`, the script will ask for missing credentials
 
   > **Note**
-  > To setup the credentials in the Docker Container, refer to the [Run the Docker Container](#run-the-docker-container) section
-
+  > To setup the credentials in the Docker Container, refer to the [Docker Compose](#docker-compose) section
   > **Note2**
   > If you are not able to run a docker container from commandline, like on a Synology NAS,
   > run an instance of plextraktsync on a different device to create the necesary `.env`, `.pytrakt.json` and `servers.yml` files.
@@ -286,7 +284,7 @@ Installing from GitHub is considered developer mode, and it's documented in
 
   For example, to run this script in a cronjob every two hours:
 
-  ```
+  ```bash
   $ crontab -e
   0 */2 * * * $HOME/.local/bin/plextraktsync sync
   ```
@@ -540,7 +538,7 @@ last run then edit the "append" variable in `config.yml` to `false`.
 Run `plextraktsync --help` to see available commands.
 Run `plextraktsync COMMAND --help` to see help for `COMMAND`.
 
-```
+```bash
 $ plextraktsync --help
 Usage: plextraktsync [OPTIONS] COMMAND [ARGS]...
 
@@ -582,7 +580,7 @@ The `sync` subcommand supports `--sync=shows` and `--sync=movies` options,
 so you can sync only specific library types.
 Or only watchlist: `--sync=watchlist`.
 
-```
+```bash
 ➔ plextraktsync sync --help
 Usage: plextraktsync sync [OPTIONS]
 
@@ -609,7 +607,7 @@ The info command can be used to print package versions,
 account information,
 locations of Cache, Config and Logs directories
 
-```
+```bash
 $ plextraktsync info
 PlexTraktSync Version: 0.16.0
 Python Version: 3.10.0 (default, Oct  6 2021, 01:11:32) [Clang 13.0.0 (clang-1300.0.29.3)]
@@ -630,13 +628,13 @@ Inspect command is used to get info about Plex Media Server items,
 which is useful when debugging problems and reporting issues.
 
 - Plex Web URL from your server:
-  - https://app.plex.tv/desktop/#!/server/53aff62c4bb6027c1ada814d417e83ccdf4d5045/details?key=/library/metadata/123
+  - <https://app.plex.tv/desktop/#!/server/53aff62c4bb6027c1ada814d417e83ccdf4d5045/details?key=/library/metadata/123>
 - Plex Discover URL:
-  - https://app.plex.tv/desktop/#!/provider/tv.plex.provider.discover/details?key=/library/metadata/5d7768258718ba001e311845
+  - <https://app.plex.tv/desktop/#!/provider/tv.plex.provider.discover/details?key=/library/metadata/5d7768258718ba001e311845>
 - Id from from your Plex Media Server:
   - `123`
 
-```
+```bash
 plextraktsync inspect 123
 plextraktsync inspect "https://app.plex.tv/desktop/#!/server/53aff62c4bb6027c1ada814d417e83ccdf4d5045/details?key=/library/metadata/123"
 ```
@@ -671,9 +669,7 @@ To run `watch` command:
 
 or
 
-```
 docker compose run --rm plextraktsync watch
-```
 
 or add `command: watch` to docker compose file, and `docker compose up -d
 plextraktsync` to start the container detached:
@@ -717,7 +713,7 @@ ExecStart=/path/to/plextraktsync/plextraktsync.sh watch
 
 Following that you will need to enable the service:
 
-```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl start PlexTraktSync.service
 sudo systemctl enable PlexTraktSync.service
@@ -810,7 +806,6 @@ You can fix it by [adding the missing episodes] or edit metadata (eg. missing tv
 It's free for anyone to sign up and edit info at tmdb. Trakt will [update from tmdb][trakt-tvshow-update] data.
 
 [adding the missing episodes]: https://support.trakt.tv/support/solutions/articles/70000264977
-[tmdb]: https://themoviedb.org/
 [trakt-tvshow-update]: https://support.trakt.tv/support/solutions/articles/70000260936-how-does-movie-tv-show-information-metadata-get-updated-how-can-i-refresh-or-sync-trakt-to-tmdb-
 [how-to-report-metadata-issues]: https://support.trakt.tv/support/solutions/articles/70000627644-how-to-report-metadata-issues
 [reports]: https://trakt.tv/settings/reports
