@@ -95,7 +95,6 @@ pipx install PlexTraktSync==0.15.2 --force
 and to upgrade:
 
 ```bash
-plextraktsync self-update
 ```
 
 which just calls `pipx` with:
