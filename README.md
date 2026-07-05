@@ -155,9 +155,10 @@ or latest 0.25.x version:
 
 - `image: ghcr.io/taxel/plextraktsync:0.25`
 
-Note: `main` is development version and reporting bugs against development versions are not supported.
+Note: `main` is development version and reporting bugs against development versions are not support
 
-#### Run the Docker Container
+Run the Docker Container
+
 
 To run sync:
 
